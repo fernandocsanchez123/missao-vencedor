@@ -1,0 +1,371 @@
+/* ==========================================================================
+   PROJETO MISSÃO VENCEDOR - ESTILOS PRINCIPAIS
+   Cores: Azul Celestial, Girassol (Amarelo/Preto), Verde Esmeralda, Onça Pintada
+   ========================================================================== */
+
+:root {
+    --azul-celestial: #1a4b84;
+    --azul-celestial-escuro: #0f2c4d;
+    --amarelo-girassol: #f5b301;
+    --preto-girassol: #1c1917;
+    --verde-esmeralda: #00a86b;
+    --onca-dourado: #c68a27;
+    --fundo-suave: #f9fbfd;
+    --texto-corpo: #333333;
+    --fonte-titulo: 'Cinzel', serif;
+    --fonte-corpo: 'Montserrat', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--fonte-corpo);
+    background-color: var(--fundo-suave);
+    color: var(--texto-corpo);
+    line-height: 1.6;
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: var(--azul-celestial-escuro);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 3px solid var(--amarelo-girassol);
+}
+
+.navbar .logo {
+    font-family: var(--fonte-titulo);
+    color: var(--amarelo-girassol);
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.navbar .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.navbar .nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.navbar .nav-links a:hover {
+    color: var(--amarelo-girassol);
+}
+
+/* HERO SECTION - MENSAGEM INICIAL DEUS É FIEL */
+.hero-section {
+    position: relative;
+    background: linear-gradient(135deg, var(--azul-celestial-escuro) 0%, var(--azul-celestial) 100%);
+    color: #ffffff;
+    padding: 80px 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* PADRÃO ESPIRAL PHI / GIRASSOL EM SVG TRANSPARENTE */
+.phi-pattern-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(245, 179, 1, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+/* DEUS FIEL E VERDADEIRO EM VERDE ESMERALDA */
+.god-fiel {
+    color: var(--verde-esmeralda);
+    font-family: var(--fonte-titulo);
+    font-size: 2.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+.bible-verse {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--amarelo-girassol);
+    margin: 20px 0;
+    padding: 15px;
+    border-left: 4px solid var(--amarelo-girassol);
+    border-right: 4px solid var(--amarelo-girassol);
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.bible-verse span {
+    display: block;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.welcome-box {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.welcome-box h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* DETALHE ONÇA PINTADA */
+.jaguar-accent-bar {
+    height: 8px;
+    background: repeating-linear-gradient(
+        45deg,
+        var(--onca-dourado),
+        var(--onca-dourado) 15px,
+        var(--preto-girassol) 15px,
+        var(--preto-girassol) 30px,
+        var(--amarelo-girassol) 30px,
+        var(--amarelo-girassol) 45px
+    );
+}
+
+/* CONTAINER GERAL */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.section-title {
+    font-family: var(--fonte-titulo);
+    color: var(--azul-celestial-escuro);
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 1rem;
+}
+
+/* SECTION TESTEMUNHO TIMELINE */
+.story-section {
+    background-color: #ffffff;
+}
+
+.story-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.timeline-block {
+    display: flex;
+    gap: 20px;
+    background-color: var(--fundo-suave);
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid var(--azul-celestial);
+    padding: 25px;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.timeline-block:hover {
+    transform: translateY(-3px);
+}
+
+.timeline-block.focus-block {
+    border-left-color: var(--verde-esmeralda);
+    background-color: #f0fdf4;
+}
+
+.timeline-badge {
+    background-color: var(--preto-girassol);
+    color: var(--amarelo-girassol);
+    font-weight: 700;
+    font-size: 1.1rem;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.timeline-content h3 {
+    color: var(--azul-celestial-escuro);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.timeline-content p {
+    color: #444;
+    font-size: 0.98rem;
+    margin-bottom: 8px;
+}
+
+/* SECTION MATERIAIS / QUADRADOS */
+.materials-section {
+    background-color: #f4f7fa;
+}
+
+.materials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card-material {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.card-material:hover {
+    border-color: var(--amarelo-girassol);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.card-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--onca-dourado);
+    letter-spacing: 1px;
+}
+
+.card-material h3 {
+    color: var(--azul-celestial-escuro);
+    font-size: 1.3rem;
+    margin: 5px 0 15px 0;
+}
+
+.card-material p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.btn-download {
+    display: inline-block;
+    text-align: center;
+    background-color: var(--azul-celestial);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 15px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.btn-download:hover {
+    background-color: var(--azul-celestial-escuro);
+}
+
+/* SECTION CPLs */
+.cpl-section {
+    background-color: #ffffff;
+    border-top: 1px solid #e2e8f0;
+}
+
+.cpl-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.cpl-card {
+    background-color: var(--fundo-suave);
+    border: 1px solid #cbd5e1;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.cpl-card h4 {
+    color: var(--azul-celestial-escuro);
+    margin-bottom: 10px;
+}
+
+.cpl-card p {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.btn-cpl {
+    display: inline-block;
+    background-color: var(--preto-girassol);
+    color: var(--amarelo-girassol);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.btn-cpl:hover {
+    background-color: var(--verde-esmeralda);
+    color: #ffffff;
+}
+
+/* FOOTER */
+.footer {
+    background-color: var(--preto-girassol);
+    color: #aaaaaa;
+    text-align: center;
+    padding: 25px 20px;
+    font-size: 0.85rem;
+    border-top: 3px solid var(--amarelo-girassol);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .god-fiel {
+        font-size: 1.8rem;
+    }
+    .timeline-block {
+        flex-direction: column;
+    }
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
