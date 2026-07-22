@@ -636,57 +636,52 @@
                 <p class="text-xs text-slate-500 mt-1">Preencha os campos abaixo para dar o primeiro passo com o mentor.</p>
             </div>
 
-            <!-- FORMULÁRIO CONFIGURADO PARA ENVIAR EMail -->
-            <form action="envia.php" method="POST" id="leadForm" class="space-y-4">
-                
-                <!-- Assunto Fixo do E-mail -->
-                <input type="hidden" name="_subject" value="MISSÃO VENCEDOR - Nova Aplicação">
+            <!-- FORMULÁRIO CONFIGURADO PARA ENVIAR EMAIL -->
+<form action="envia.php" method="POST" id="leadForm" class="space-y-4">
+    
+    <div>
+        <label class="block text-xs font-bold text-navy-800 mb-1">Nome Completo *</label>
+        <input type="text" name="nome" required placeholder="Seu nome completo" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+    </div>
 
-                <div>
-                    <label class="block text-xs font-bold text-navy-800 mb-1">Nome Completo *</label>
-                    <input type="text" name="Nome Completo" required placeholder="Seu nome completo" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-xs font-bold text-navy-800 mb-1">Data de Nascimento *</label>
-                        <input type="date" name="Data de Nascimento" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm text-slate-700">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-navy-800 mb-1">Profissão *</label>
-                        <input type="text" name="Profissão" required placeholder="Sua ocupação principal" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-xs font-bold text-navy-800 mb-1">WhatsApp (com DDD) *</label>
-                        <input type="tel" name="WhatsApp" required placeholder="(11) 99999-9999" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-navy-800 mb-1">E-mail Principal *</label>
-                        <input type="email" name="E-mail" required placeholder="seuemail@exemplo.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-navy-800 mb-1">Qual é o seu maior problema/desafio hoje? *</label>
-                    <textarea name="Maior Problema" required rows="2" placeholder="Ex: Ansiedade, desorganização financeira, falta de brio, crise familiar..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm"></textarea>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-navy-800 mb-1">Quais são os seus maiores sonhos e objetivos? *</label>
-                    <textarea name="Maiores Sonhos" required rows="2" placeholder="Ex: Ter estabilidade no lar, crescer espiritualmente, ter liberdade financeira..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm"></textarea>
-                </div>
-
-                <button type="submit" class="w-full bg-gradient-to-r from-gold-500 to-amber-600 text-navy-900 font-extrabold py-3.5 rounded-xl shadow-md hover:brightness-110 transition-all text-sm mt-2 flex items-center justify-center gap-2 cursor-pointer">
-                    <span>ENVIAR APLICAÇÃO POR E-MAIL</span>
-                    <i data-lucide="send" class="w-4 h-4"></i>
-                </button>
-
-            </form>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div>
+            <label class="block text-xs font-bold text-navy-800 mb-1">Data de Nascimento *</label>
+            <input type="date" name="data_nascimento" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm text-slate-700">
+        </div>
+        <div>
+            <label class="block text-xs font-bold text-navy-800 mb-1">Profissão *</label>
+            <input type="text" name="profissao" required placeholder="Sua ocupação principal" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
         </div>
     </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div>
+            <label class="block text-xs font-bold text-navy-800 mb-1">WhatsApp (com DDD) *</label>
+            <input type="tel" name="whatsapp" required placeholder="(11) 99999-9999" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+        </div>
+        <div>
+            <label class="block text-xs font-bold text-navy-800 mb-1">E-mail Principal *</label>
+            <input type="email" name="email" required placeholder="seuemail@exemplo.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+        </div>
+    </div>
+
+    <div>
+        <label class="block text-xs font-bold text-navy-800 mb-1">Qual é o seu maior problema/desafio hoje? *</label>
+        <textarea name="problema" required rows="2" placeholder="Ex: Ansiedade, desorganização financeira, falta de brio, crise familiar..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm"></textarea>
+    </div>
+
+    <div>
+        <label class="block text-xs font-bold text-navy-800 mb-1">Quais são os seus maiores sonhos e objetivos? *</label>
+        <textarea name="sonhos" required rows="2" placeholder="Ex: Ter estabilidade no lar, crescer espiritualmente, ter liberdade financeira..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm"></textarea>
+    </div>
+
+    <button type="submit" class="w-full bg-gradient-to-r from-gold-500 to-amber-600 text-navy-900 font-extrabold py-3.5 rounded-xl shadow-md hover:brightness-110 transition-all text-sm mt-2 flex items-center justify-center gap-2 cursor-pointer">
+        <span>ENVIAR APLICAÇÃO POR E-MAIL</span>
+        <i data-lucide="send" class="w-4 h-4"></i>
+    </button>
+
+</form>
 
     <!-- RODAPÉ -->
     <footer class="bg-navy-900 text-slate-400 py-10 border-t border-gold-500/10 text-center text-xs sm:text-sm">
