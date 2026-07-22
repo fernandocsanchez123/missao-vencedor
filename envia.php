@@ -1,18 +1,18 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // 1. Seu e-mail onde você deseja receber as aplicações
+    // 1. Seu e-mail de destino
     $to = "fernandocsanchez@hotmail.com";
     $subject = "=?UTF-8?B?" . base64_encode("MISSÃO VENCEDOR - Nova Aplicação") . "?=";
 
-    // 2. Resgate e higienização dos campos
-    $nome      = htmlspecialchars($_POST['nome'] ?? '');
-    $nasc      = htmlspecialchars($_POST['data_nascimento'] ?? '');
-    $profissao = htmlspecialchars($_POST['profissao'] ?? '');
-    $whatsapp  = htmlspecialchars($_POST['whatsapp'] ?? '');
+    // 2. Resgate flexível (busca por nomes em português ou inglês)
+    $nome      = htmlspecialchars($_POST['nome'] ?? $_POST['name'] ?? $_POST['full_name'] ?? '');
+    $nasc      = htmlspecialchars($_POST['data_nascimento'] ?? $_POST['nascimento'] ?? $_POST['dob'] ?? '');
+    $profissao = htmlspecialchars($_POST['profissao'] ?? $_POST['profession'] ?? $_POST['cargo'] ?? '');
+    $whatsapp  = htmlspecialchars($_POST['whatsapp'] ?? $_POST['phone'] ?? $_POST['telefone'] ?? '');
     $email     = filter_var($_POST['email'] ?? '', FILTER_SANITIZE_EMAIL);
-    $problema  = nl2br(htmlspecialchars($_POST['problema'] ?? ''));
-    $sonhos    = nl2br(htmlspecialchars($_POST['sonhos'] ?? ''));
+    $problema  = nl2br(htmlspecialchars($_POST['problema'] ?? $_POST['desafio'] ?? $_POST['message'] ?? ''));
+    $sonhos    = nl2br(htmlspecialchars($_POST['sonhos'] ?? $_POST['objetivos'] ?? ''));
 
     // 3. Montagem da mensagem em HTML
     $message = "
@@ -39,14 +39,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </html>
     ";
 
-    // 4. Cabeçalhos compatíveis com Hostinger
+    // 4. Cabeçalhos
     $headers  = "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
     $headers .= "From: Formulario <noreply@" . $_SERVER['HTTP_HOST'] . ">" . "\r\n";
-    $headers .= "Reply-To: {$email}" . "\r\n";
+    if (!empty($email)) {
+        $headers .= "Reply-To: {$email}" . "\r\n";
+    }
     $headers .= "X-Mailer: PHP/" . phpversion();
 
-    // 5. Envio e Redirecionamento
+    // 5. Envio
     if (mail($to, $subject, $message, $headers)) {
         echo "<script>
                 alert('Aplicação enviada com sucesso! Em breve entraremos em contato.');
