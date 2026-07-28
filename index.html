@@ -55,6 +55,17 @@
         .gold-border-glow {
             box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
         }
+        .step-content {
+            display: none;
+        }
+        .step-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body class="bg-sand text-slate-800 font-sans antialiased selection:bg-gold-500 selection:text-navy-900">
@@ -70,17 +81,30 @@
             <!-- Menu Desktop -->
             <div class="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wide">
                 <a href="#inicio" class="hover:text-gold-500 transition-colors">Início</a>
+                <a href="#lancamento" class="hover:text-gold-500 transition-colors flex items-center gap-1 text-gold-400"><i data-lucide="play-circle" class="w-4 h-4"></i> Aulas</a>
                 <a href="#boas-vindas" class="hover:text-gold-500 transition-colors">Propósito</a>
                 <a href="#diagnostico" class="hover:text-gold-500 transition-colors">A Crise Atual</a>
                 <a href="#materias" class="hover:text-gold-500 transition-colors">As 9 Matérias</a>
                 <a href="#mentor" class="hover:text-gold-500 transition-colors">Mentor</a>
             </div>
 
-            <!-- BOTÃO 1 (CABEÇALHO) -->
-            <button onclick="openModal()" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-gold-500 to-amber-600 text-navy-900 font-bold px-5 py-2.5 rounded-lg shadow-md hover:brightness-110 transition-all text-sm cursor-pointer">
-                <span>Fazer Parte</span>
-                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </button>
+            <!-- REDES SOCIAIS & BOTÃO PRINCIPAL -->
+            <div class="hidden sm:flex items-center gap-4">
+                <div class="flex items-center gap-3 border-r border-slate-700 pr-4">
+                    <!-- INSIRA SEUS LINKS DO INSTAGRAM E LINKEDIN AQUI -->
+                    <a href="https://instagram.com/seu_perfil" target="_blank" rel="noopener" class="text-slate-300 hover:text-gold-500 transition-colors" title="Instagram">
+                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/seu_perfil" target="_blank" rel="noopener" class="text-slate-300 hover:text-gold-500 transition-colors" title="LinkedIn">
+                        <i data-lucide="linkedin" class="w-5 h-5"></i>
+                    </a>
+                </div>
+
+                <button onclick="openModal()" class="inline-flex items-center gap-2 bg-gradient-to-r from-gold-500 to-amber-600 text-navy-900 font-bold px-5 py-2.5 rounded-lg shadow-md hover:brightness-110 transition-all text-sm cursor-pointer">
+                    <span>Fazer Anamnese</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+            </div>
 
             <!-- Mobile Menu Toggle -->
             <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white p-2">
@@ -91,16 +115,21 @@
         <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden md:hidden bg-navy-900 border-b border-gold-500/20 px-4 pt-2 pb-6 space-y-3">
             <a href="#inicio" class="block text-slate-200 hover:text-gold-500 py-2">Início</a>
+            <a href="#lancamento" class="block text-gold-400 hover:text-gold-500 py-2">Aulas Gratuitas</a>
             <a href="#boas-vindas" class="block text-slate-200 hover:text-gold-500 py-2">Propósito</a>
             <a href="#diagnostico" class="block text-slate-200 hover:text-gold-500 py-2">A Crise Atual</a>
             <a href="#materias" class="block text-slate-200 hover:text-gold-500 py-2">As 9 Matérias</a>
             <a href="#mentor" class="block text-slate-200 hover:text-gold-500 py-2">Mentor</a>
-            <button onclick="openModal()" class="w-full text-center bg-gold-500 text-navy-900 font-bold py-3 rounded-lg mt-2 block">Fazer Parte</button>
+            <div class="flex items-center gap-4 py-2 border-t border-slate-800 pt-3">
+                <a href="https://instagram.com/seu_perfil" target="_blank" class="text-slate-300 hover:text-gold-500 flex items-center gap-2 text-sm"><i data-lucide="instagram" class="w-4 h-4"></i> Instagram</a>
+                <a href="https://linkedin.com/in/seu_perfil" target="_blank" class="text-slate-300 hover:text-gold-500 flex items-center gap-2 text-sm"><i data-lucide="linkedin" class="w-4 h-4"></i> LinkedIn</a>
+            </div>
+            <button onclick="openModal()" class="w-full text-center bg-gold-500 text-navy-900 font-bold py-3 rounded-lg mt-2 block">Fazer Anamnese</button>
         </div>
     </nav>
 
     <!-- 1. HERO SECTION -->
-    <section id="inicio" class="relative bg-navy-800 text-white pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden border-b border-gold-500/10">
+    <section id="inicio" class="relative bg-navy-800 text-white pt-16 pb-20 lg:pt-24 lg:pb-28 overflow-hidden border-b border-gold-500/10">
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-navy-700 via-navy-800 to-navy-900 opacity-90"></div>
         
         <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -155,6 +184,31 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <!-- ESPAÇO VÍDEO DE CHAMADA (LANÇAMENTO SEMENTE - EM BREVE) -->
+    <section id="lancamento" class="py-12 bg-navy-900 text-white border-b border-gold-500/20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/20 text-gold-400 font-semibold text-xs uppercase tracking-wider mb-4">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                Jornada de Transformação (Em breve)
+            </span>
+            <h3 class="font-cinzel text-xl sm:text-2xl font-bold text-white mb-2">
+                Série Especial: A Semana de Governança e Liberdade
+            </h3>
+            <p class="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto mb-6">
+                Prepare-se para 3 aulas exclusivas onde revelaremos o mapa prático para organizar suas finanças, mente e vida espiritual.
+            </p>
+
+            <!-- CARD DE ESPAÇO RESERVADO DO VÍDEO -->
+            <div class="max-w-2xl mx-auto bg-navy-800/90 border-2 border-dashed border-gold-500/40 rounded-2xl p-8 sm:p-12 relative flex flex-col items-center justify-center gap-3">
+                <div class="w-16 h-16 rounded-full bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-500 mb-1">
+                    <i data-lucide="video" class="w-8 h-8"></i>
+                </div>
+                <span class="text-gold-400 font-bold text-sm tracking-wider uppercase">[ Vídeo de Chamada — Em breve ]</span>
+                <p class="text-slate-400 text-xs max-w-sm">Estamos finalizando a gravação das aulas. Preencha a anamnese para receber o aviso em primeira mão!</p>
+            </div>
         </div>
     </section>
 
@@ -559,11 +613,26 @@
             <div class="bg-navy-900 text-white rounded-3xl p-8 sm:p-12 border border-gold-500/30 shadow-2xl relative overflow-hidden">
                 <div class="grid lg:grid-cols-12 gap-8 items-center">
                     <div class="lg:col-span-12">
-                        <span class="text-gold-400 font-semibold text-xs uppercase tracking-widest block mb-2">Liderança & Mentor</span>
-                        <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-white mb-6">Conheça Seu Mentor na Jornada</h2>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+                            <div>
+                                <span class="text-gold-400 font-semibold text-xs uppercase tracking-widest block mb-1">Liderança & Mentor</span>
+                                <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-white">Fernando Sanchez</h2>
+                            </div>
+                            
+                            <!-- LINKS SOCIAIS DO MENTOR -->
+                            <div class="flex items-center gap-3 bg-navy-800/90 px-4 py-2 rounded-xl border border-gold-500/20 self-start sm:self-auto">
+                                <span class="text-xs text-slate-300 font-medium">Conecte-se:</span>
+                                <a href="https://instagram.com/seu_perfil" target="_blank" class="text-gold-400 hover:text-white transition-colors" title="Instagram">
+                                    <i data-lucide="instagram" class="w-5 h-5"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/seu_perfil" target="_blank" class="text-gold-400 hover:text-white transition-colors" title="LinkedIn">
+                                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                                </a>
+                            </div>
+                        </div>
                         
                         <p class="text-slate-300 text-base sm:text-lg mb-8 leading-relaxed">
-                            Prazer, meu nome é <strong class="text-gold-400 font-semibold">Fernando Sanchez</strong>. Estou aqui com uma missão muito clara: ajudar a ordenar a vida das pessoas para que realizem seus sonhos em obediência e fidelidade a Deus.
+                            Prazer! Estou aqui com uma missão muito clara: ajudar a ordenar a vida das pessoas para que realizem seus sonhos em obediência e fidelidade a Deus.
                         </p>
                         
                         <p class="text-slate-300 text-sm sm:text-base mb-8">
@@ -601,7 +670,33 @@
         </div>
     </section>
 
-    <!-- 7. CHAMADA PARA AÇÃO (BOTÃO 2 - FINAL DA PÁGINA) -->
+    <!-- 7. SEÇÃO DE NEWSLETTER (ESTILO GRÃO) -->
+    <section class="py-16 bg-sand border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-navy-800 text-white rounded-3xl p-8 sm:p-10 border border-gold-500/20 shadow-lg flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="max-w-md">
+                    <span class="text-gold-400 font-bold text-xs uppercase tracking-wider block mb-2">Conteúdo Exclusivo no seu E-mail</span>
+                    <h3 class="font-cinzel text-2xl font-bold text-white mb-2">Aprenda a planejar suas finanças com sabedoria</h3>
+                    <p class="text-slate-300 text-xs sm:text-sm">Receba artigos, análises e dicas semanais para proteger seu patrimônio e tomar as melhores decisões financeiras.</p>
+                </div>
+
+                <form action="https://api.web3forms.com/submit" method="POST" class="w-full md:w-auto flex-1 max-w-sm">
+                    <input type="hidden" name="access_key" value="88debaf4-6420-440d-b37d-04aaf39a6781">
+                    <input type="hidden" name="subject" value="Novo inscrito na Newsletter">
+                    
+                    <div class="flex flex-col gap-2">
+                        <input type="email" name="email_newsletter" placeholder="Digite seu melhor e-mail" required class="w-full px-4 py-3 rounded-xl border border-slate-600 bg-navy-900 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-gold-500">
+                        <button type="submit" class="w-full bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold py-3 rounded-xl transition-all text-sm flex items-center justify-center gap-2 cursor-pointer">
+                            <span>Inscrever-se gratuitamente</span>
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. CHAMADA PARA AÇÃO (BOTÃO FINAL DA PÁGINA) -->
     <section id="cta" class="py-24 bg-gradient-to-b from-navy-800 to-navy-900 text-white text-center relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <i data-lucide="award" class="w-16 h-16 text-gold-500 mx-auto mb-6"></i>
@@ -615,216 +710,249 @@
             </p>
 
             <button onclick="openModal()" class="inline-flex items-center gap-3 bg-gradient-to-r from-gold-500 via-amber-500 to-gold-400 text-navy-900 font-extrabold text-base sm:text-lg px-8 py-5 rounded-2xl shadow-xl hover:brightness-110 transition-all hover:scale-105 gold-border-glow cursor-pointer">
-                <span>QUERO FAZER PARTE DO PROJETO MISSÃO VENCEDOR</span>
+                <span>QUERO FAZER MINHA ANAMNESE</span>
                 <i data-lucide="arrow-right" class="w-6 h-6"></i>
             </button>
         </div>
     </section>
 
-    <!-- MODAL / FICHA DE ANAMNESE COMPLETA -->
+    <!-- MODAL / FICHA DE ANAMNESE MULTI-ETAPAS (PASSO A PASSO) -->
     <div id="leadModal" class="fixed inset-0 bg-navy-900/80 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4 overflow-y-auto">
-        <div class="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl relative my-8 border border-gold-500/30 max-h-[90vh] overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative my-8 border border-gold-500/30">
             
             <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 p-2">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
 
+            <!-- CABEÇALHO DO MODAL E INDICADOR DE ETAPAS -->
             <div class="text-center mb-6">
                 <span class="font-cinzel text-gold-500 text-xs font-bold uppercase tracking-widest block mb-1">Alinhamento Perfeito</span>
-                <h3 class="font-cinzel text-2xl font-bold text-navy-900">Ficha de Anamnese do Cliente</h3>
-                <p class="text-xs text-slate-500 mt-2 bg-amber-50 p-3 rounded-xl border border-amber-200 text-amber-900">
-                    💡 <strong>Nota:</strong> Este formulário serve para alinharmos nossas reuniões ao seu perfil. Nenhuma pergunta é obrigatória — responda apenas ao que se sentir confortável!
+                <h3 class="font-cinzel text-xl sm:text-2xl font-bold text-navy-900">Ficha de Anamnese do Cliente</h3>
+                
+                <!-- Barra de Progresso Visual -->
+                <div class="w-full bg-slate-100 rounded-full h-2 mt-4 mb-2 overflow-hidden border border-slate-200">
+                    <div id="progress-bar" class="bg-gradient-to-r from-gold-500 to-amber-600 h-full w-[20%] transition-all duration-300"></div>
+                </div>
+                <span id="step-indicator" class="text-xs font-semibold text-navy-800">Etapa 1 de 5</span>
+
+                <p class="text-xs text-slate-500 mt-2 bg-amber-50 p-2.5 rounded-xl border border-amber-200 text-amber-900 text-left sm:text-center">
+                    💡 <strong>Nota:</strong> Nenhuma pergunta é obrigatória — responda apenas ao que se sentir confortável!
                 </p>
             </div>
 
-            <!-- Exemplo usando Web3Forms -->
-            <form action="https://api.web3forms.com/submit" method="POST" id="leadForm" class="space-y-6">
-    <!-- Insira sua chave gratuita aqui -->
-            <input type="hidden" name="access_key" value="88debaf4-6420-440d-b37d-04aaf39a6781">
-    
-    <!-- Restante dos campos do formulário... -->
+            <!-- FORMULÁRIO COM MULTI-STEPS -->
+            <form action="https://api.web3forms.com/submit" method="POST" id="leadForm">
+                <input type="hidden" name="access_key" value="88debaf4-6420-440d-b37d-04aaf39a6781">
+                <input type="hidden" name="subject" value="Nova Anamnese Recebida - Missão Vencedor">
 
-                <!-- SEÇÃO 1 -->
-                <div class="border-b border-slate-200 pb-4">
-                    <h4 class="font-bold text-navy-900 text-sm mb-3 text-gold-600">1. Dados de Contato e Perfil Geral</h4>
+                <!-- ETAPA 1: Dados de Contato e Perfil Geral -->
+                <div class="step-content active" id="step-1">
+                    <h4 class="font-bold text-navy-900 text-sm mb-3 text-gold-600 border-b border-slate-100 pb-2">1. Dados de Contato e Perfil Geral</h4>
                     
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
-                        <div>
-                            <label class="block text-xs font-bold text-navy-800 mb-1">Nome completo</label>
-                            <input type="text" name="nome" placeholder="Seu nome" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                    <div class="space-y-3">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-navy-800 mb-1">Nome completo</label>
+                                <input type="text" name="nome" placeholder="Seu nome" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-navy-800 mb-1">Idade</label>
+                                <input type="text" name="idade" placeholder="Ex: 35 anos" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                            </div>
                         </div>
-                        <div>
-                            <label class="block text-xs font-bold text-navy-800 mb-1">Idade</label>
-                            <input type="text" name="idade" placeholder="Ex: 35 anos" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
-                        </div>
-                    </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
-                        <div>
-                            <label class="block text-xs font-bold text-navy-800 mb-1">Estado civil</label>
-                            <input type="text" name="estado_civil" placeholder="Solteiro(a), Casado(a)..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-navy-800 mb-1">Estado civil</label>
+                                <input type="text" name="estado_civil" placeholder="Solteiro(a), Casado(a)..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-navy-800 mb-1">E-mail</label>
+                                <input type="email" name="email" placeholder="seuemail@exemplo.com" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-navy-800 mb-1">Celular / WhatsApp</label>
+                                <input type="tel" name="whatsapp" placeholder="(11) 99999-9999" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                            </div>
                         </div>
-                        <div>
-                            <label class="block text-xs font-bold text-navy-800 mb-1">E-mail</label>
-                            <input type="email" name="email" placeholder="seuemail@exemplo.com" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-navy-800 mb-1">Celular / WhatsApp</label>
-                            <input type="tel" name="whatsapp" placeholder="(11) 99999-9999" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
-                        </div>
-                    </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
-                        <div>
-                            <label class="block text-xs font-bold text-navy-800 mb-1">Nacionalidade</label>
-                            <input type="text" name="nacionalidade" placeholder="Ex: Brasileira" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-navy-800 mb-1">Nacionalidade</label>
+                                <input type="text" name="nacionalidade" placeholder="Ex: Brasileira" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-navy-800 mb-1">Possui segunda cidadania? (Qual?)</label>
+                                <input type="text" name="segunda_cidadania" placeholder="Não, ou Sim (Italiana, Portuguesa...)" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                            </div>
                         </div>
-                        <div>
-                            <label class="block text-xs font-bold text-navy-800 mb-1">Possui segunda cidadania? (Qual?)</label>
-                            <input type="text" name="segunda_cidadania" placeholder="Não, ou Sim (Italiana, Portuguesa...)" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
-                        </div>
-                    </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
-                        <div>
-                            <label class="block text-xs font-bold text-navy-800 mb-1">Formação acadêmica</label>
-                            <input type="text" name="formacao" placeholder="Ex: Engenharia, Direito..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-navy-800 mb-1">Formação acadêmica</label>
+                                <input type="text" name="formacao" placeholder="Ex: Engenharia, Direito..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-navy-800 mb-1">Profissão / Atuação atual</label>
+                                <input type="text" name="profissao" placeholder="Ex: Empresário, Autônomo..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                            </div>
                         </div>
-                        <div>
-                            <label class="block text-xs font-bold text-navy-800 mb-1">Profissão / Atuação atual</label>
-                            <input type="text" name="profissao" placeholder="Ex: Empresário, Autônomo..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
-                        </div>
-                    </div>
 
-                    <div>
-                        <label class="block text-xs font-bold text-navy-800 mb-1">Tem filhos? (Quantos e idades)</label>
-                        <input type="text" name="filhos" placeholder="Não, ou Sim (Ex: 2 filhos - 5 e 10 anos)" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                        <div>
+                            <label class="block text-xs font-bold text-navy-800 mb-1">Tem filhos? (Quantos e idades)</label>
+                            <input type="text" name="filhos" placeholder="Não, ou Sim (Ex: 2 filhos - 5 e 10 anos)" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                        </div>
                     </div>
                 </div>
 
-                <!-- SEÇÃO 2 -->
-                <div class="border-b border-slate-200 pb-4">
+                <!-- ETAPA 2: Hábitos, Estilo de Vida & Preferências -->
+                <div class="step-content" id="step-2">
                     <h4 class="font-bold text-navy-900 text-sm mb-1 text-gold-600">2. Hábitos, Estilo de Vida & Preferências</h4>
-                    <p class="text-[11px] text-slate-500 mb-3">(Ajuda a entender seu estilo e planejar experiências ou pausas durante nossa jornada!)</p>
+                    <p class="text-[11px] text-slate-500 mb-3 border-b border-slate-100 pb-2">(Ajuda a entender seu estilo e planejar experiências ou pausas durante nossa jornada!)</p>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
-                        <div>
-                            <label class="block text-xs font-bold text-navy-800 mb-1">Prefere qual estação do ano?</label>
-                            <select name="estacao_ano" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm text-slate-700">
-                                <option value="Não informado">Selecione...</option>
-                                <option value="Primavera">Primavera</option>
-                                <option value="Verão">Verão</option>
-                                <option value="Outono">Outono</option>
-                                <option value="Inverno">Inverno</option>
-                            </select>
+                    <div class="space-y-3">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-navy-800 mb-1">Prefere qual estação do ano?</label>
+                                <select name="estacao_ano" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm text-slate-700">
+                                    <option value="Não informado">Selecione...</option>
+                                    <option value="Primavera">Primavera</option>
+                                    <option value="Verão">Verão</option>
+                                    <option value="Outono">Outono</option>
+                                    <option value="Inverno">Inverno</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-navy-800 mb-1">Gosta mais de comida quente ou fria?</label>
+                                <input type="text" name="comida_preferencia" placeholder="Ex: Quente, Fria, Tanto faz..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                            </div>
                         </div>
+
                         <div>
-                            <label class="block text-xs font-bold text-navy-800 mb-1">Gosta mais de comida quente ou fria?</label>
-                            <input type="text" name="comida_preferencia" placeholder="Ex: Quente, Fria, Tanto faz..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                            <label class="block text-xs font-bold text-navy-800 mb-1">Gosta de algum esporte? (Praticando ou assistindo)</label>
+                            <input type="text" name="esporte" placeholder="Ex: Corrida, Futebol, Tênis, Natação..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
                         </div>
-                    </div>
 
-                    <div class="mb-3">
-                        <label class="block text-xs font-bold text-navy-800 mb-1">Gosta de algum esporte? (Praticando ou assistindo)</label>
-                        <input type="text" name="esporte" placeholder="Ex: Corrida, Futebol, Tênis, Natação..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold text-navy-800 mb-1">Já viajou para outros países? Quais marcaram você?</label>
-                        <input type="text" name="viagens_internacionais" placeholder="Não, ou Sim (Ex: Itália, EUA, Japão...)" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                        <div>
+                            <label class="block text-xs font-bold text-navy-800 mb-1">Já viajou para outros países? Quais marcaram você?</label>
+                            <input type="text" name="viagens_internacionais" placeholder="Não, ou Sim (Ex: Itália, EUA, Japão...)" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                        </div>
                     </div>
                 </div>
 
-                <!-- SEÇÃO 3 -->
-                <div class="border-b border-slate-200 pb-4">
-                    <h4 class="font-bold text-navy-900 text-sm mb-3 text-gold-600">3. Mapeamento de Rede e Proteção Financeira</h4>
+                <!-- ETAPA 3: Mapeamento de Rede e Proteção Financeira -->
+                <div class="step-content" id="step-3">
+                    <h4 class="font-bold text-navy-900 text-sm mb-3 text-gold-600 border-b border-slate-100 pb-2">3. Mapeamento de Rede e Proteção Financeira</h4>
 
-                    <div class="mb-3">
-                        <label class="block text-xs font-bold text-navy-800 mb-1">Já conhece algum produto do mercado financeiro?</label>
-                        <input type="text" name="conhecimento_financeiro" placeholder="Ex: CDB, LCI, Tesouro, Ações, Cripto..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+                    <div class="space-y-3">
                         <div>
-                            <label class="block text-xs font-bold text-navy-800 mb-1">Já tem Assessor, Consultor ou parceiro investidor?</label>
-                            <input type="text" name="tem_assessor" placeholder="Sim / Não" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                            <label class="block text-xs font-bold text-navy-800 mb-1">Já conhece algum produto do mercado financeiro?</label>
+                            <input type="text" name="conhecimento_financeiro" placeholder="Ex: CDB, LCI, Tesouro, Ações, Cripto..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
                         </div>
-                        <div>
-                            <label class="block text-xs font-bold text-navy-800 mb-1">Tem advogado(a) de confiança?</label>
-                            <input type="text" name="tem_advogado" placeholder="Sim / Não" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
-                        </div>
-                    </div>
 
-                    <div>
-                        <label class="block text-xs font-bold text-navy-800 mb-1">Contratou algum tipo de seguro nos últimos meses? (Qual?)</label>
-                        <input type="text" name="seguros_contratados" placeholder="Não, ou Sim (Ex: Vida, Auto, Residencial, Saúde)" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-navy-800 mb-1">Já tem Assessor, Consultor ou parceiro investidor?</label>
+                                <input type="text" name="tem_assessor" placeholder="Sim / Não" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-navy-800 mb-1">Tem advogado(a) de confiança?</label>
+                                <input type="text" name="tem_advogado" placeholder="Sim / Não" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-navy-800 mb-1">Contratou algum tipo de seguro nos últimos meses? (Qual?)</label>
+                            <input type="text" name="seguros_contratados" placeholder="Não, ou Sim (Ex: Vida, Auto, Residencial, Saúde)" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                        </div>
                     </div>
                 </div>
 
-                <!-- SEÇÃO 4 -->
-                <div class="border-b border-slate-200 pb-4">
-                    <h4 class="font-bold text-navy-900 text-sm mb-3 text-gold-600">4. Visão de Futuro</h4>
+                <!-- ETAPA 4: Visão de Futuro -->
+                <div class="step-content" id="step-4">
+                    <h4 class="font-bold text-navy-900 text-sm mb-3 text-gold-600 border-b border-slate-100 pb-2">4. Visão de Futuro</h4>
 
-                    <div class="mb-3">
-                        <label class="block text-xs font-bold text-navy-800 mb-1">Projetos de CURTO prazo (Até 1 ou 2 anos)</label>
-                        <textarea name="curto_prazo" rows="2" placeholder="Ex: Viagem, trocar de carro, reserva de emergência..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm"></textarea>
-                    </div>
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block text-xs font-bold text-navy-800 mb-1">Projetos de CURTO prazo (Até 1 ou 2 anos)</label>
+                            <textarea name="curto_prazo" rows="2" placeholder="Ex: Viagem, trocar de carro, reserva de emergência..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm"></textarea>
+                        </div>
 
-                    <div class="mb-3">
-                        <label class="block text-xs font-bold text-navy-800 mb-1">Projetos de MÉDIO prazo (De 2 a 5 anos)</label>
-                        <textarea name="medio_prazo" rows="2" placeholder="Ex: Pós-graduação, dar entrada em imóvel, transição de carreira..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm"></textarea>
-                    </div>
+                        <div>
+                            <label class="block text-xs font-bold text-navy-800 mb-1">Projetos de MÉDIO prazo (De 2 a 5 anos)</label>
+                            <textarea name="medio_prazo" rows="2" placeholder="Ex: Pós-graduação, dar entrada em imóvel, transição de carreira..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm"></textarea>
+                        </div>
 
-                    <div>
-                        <label class="block text-xs font-bold text-navy-800 mb-1">Projetos de LONGO prazo (Acima de 5 anos)</label>
-                        <textarea name="longo_prazo" rows="2" placeholder="Ex: Independência financeira, aposentadoria, faculdade dos filhos..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm"></textarea>
+                        <div>
+                            <label class="block text-xs font-bold text-navy-800 mb-1">Projetos de LONGO prazo (Acima de 5 anos)</label>
+                            <textarea name="longo_prazo" rows="2" placeholder="Ex: Independência financeira, aposentadoria, faculdade dos filhos..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm"></textarea>
+                        </div>
                     </div>
                 </div>
 
-                <!-- SEÇÃO 5 -->
-                <div>
+                <!-- ETAPA 5: Desafio Lógico & Personalidade -->
+                <div class="step-content" id="step-5">
                     <h4 class="font-bold text-navy-900 text-sm mb-1 text-gold-600">5. 🧩 Desafio Lógico & Teste de Personalidade</h4>
-                    <p class="text-[11px] text-slate-500 mb-3 bg-slate-50 p-2 rounded-lg border border-slate-200">
+                    <p class="text-[11px] text-slate-500 mb-3 bg-slate-50 p-2.5 rounded-lg border border-slate-200">
                         <strong>Cenário:</strong> Você está em uma viagem dos sonhos e descobre que a única ponte que leva ao seu hotel foi interditada por 24h por causa de uma chuva rápida. O que você faz?
                     </p>
 
                     <div class="space-y-2 text-xs text-slate-700">
-                        <label class="flex items-start gap-2 p-2 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <label class="flex items-start gap-2 p-2.5 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
                             <input type="radio" name="teste_personalidade" value="(A) O Estrategista de Riscos" class="mt-0.5">
-                            <span><strong>(A) O Estrategista de Riscos:</strong> Já pego o celular, abro o mapa, procuro três rotas alternativas, ligo para a recepção do hotel para avisar do atraso e aproveito para negociar um late check-out.</span>
+                            <span><strong>(A) O Estrategista de Riscos:</strong> Já pego o celular, abro o mapa, procuro três rotas alternativas, ligo para a recepção para avisar do atraso e negocio um late check-out.</span>
                         </label>
 
-                        <label class="flex items-start gap-2 p-2 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <label class="flex items-start gap-2 p-2.5 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
                             <input type="radio" name="teste_personalidade" value="(B) O Otimista Pragmático" class="mt-0.5">
-                            <span><strong>(B) O Otimista Pragmático:</strong> Se não dá para cruzar, não dá! Procuro um café charmoso ali perto, peço uma boa refeição e transformo o imprevisto em uma história divertida da viagem.</span>
+                            <span><strong>(B) O Otimista Pragmático:</strong> Se não dá para cruzar, não dá! Procuro um café charmoso ali perto, peço uma boa refeição e transformo o imprevisto em uma história divertida.</span>
                         </label>
 
-                        <label class="flex items-start gap-2 p-2 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <label class="flex items-start gap-2 p-2.5 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
                             <input type="radio" name="teste_personalidade" value="(C) O Visionário Focado" class="mt-0.5">
-                            <span><strong>(C) O Visionário Focado:</strong> Dou um jeito. Pergunto para os locais se há um barco, um caminho alternativo de terra ou qualquer meio seguro de atravessar hoje mesmo. O objetivo é chegar ao hotel!</span>
+                            <span><strong>(C) O Visionário Focado:</strong> Dou um jeito. Pergunto aos locais se há um barco, um caminho de terra alternativo ou qualquer meio seguro de atravessar hoje mesmo.</span>
                         </label>
 
-                        <label class="flex items-start gap-2 p-2 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <label class="flex items-start gap-2 p-2.5 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
                             <input type="radio" name="teste_personalidade" value="(D) O Cuidadoso Previdente" class="mt-0.5">
-                            <span><strong>(D) O Cuidadoso Previdente:</strong> Dou graças a Deus que contratei seguro viagem e reserva de emergência! Sento com calma, analiso o cenário e tomo a decisão mais segura e econômica para o meu bolso.</span>
+                            <span><strong>(D) O Cuidadoso Previdente:</strong> Dou graças a Deus que contratei seguro viagem e reserva de emergência! Analiso o cenário com calma e tomo a decisão mais segura.</span>
                         </label>
                     </div>
                 </div>
 
-                <button type="submit" class="w-full bg-gradient-to-r from-gold-500 to-amber-600 text-navy-900 font-extrabold py-3.5 rounded-xl shadow-md hover:brightness-110 transition-all text-sm mt-4 flex items-center justify-center gap-2 cursor-pointer">
-                    <span>ENVIAR FICHA DE ANAMNESE</span>
-                    <i data-lucide="send" class="w-4 h-4"></i>
-                </button>
+                <!-- BOTÕES DE NAVEGAÇÃO DO FORMULÁRIO -->
+                <div class="flex items-center justify-between gap-3 mt-6 pt-4 border-t border-slate-100">
+                    <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="px-4 py-2.5 rounded-xl border border-slate-300 text-slate-600 font-bold text-xs hover:bg-slate-50 transition-colors hidden">
+                        Voltar
+                    </button>
+
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)" class="ml-auto bg-gradient-to-r from-gold-500 to-amber-600 text-navy-900 font-extrabold px-6 py-2.5 rounded-xl shadow-md hover:brightness-110 transition-all text-xs flex items-center gap-2 cursor-pointer">
+                        <span>Concluir Etapa</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
 
             </form>
         </div>
     </div>
 
     <!-- RODAPÉ -->
-    <footer class="bg-navy-900 text-slate-400 py-10 border-t border-gold-500/10 text-center text-xs sm:text-sm">
+    <footer class="bg-navy-900 text-slate-400 py-12 border-t border-gold-500/10 text-center text-xs sm:text-sm">
         <div class="max-w-5xl mx-auto px-4">
-            <p class="font-cinzel font-bold text-gold-500 mb-2">PROJETO MISSÃO VENCEDOR</p>
-            <p class="mb-4">© Todos os direitos reservados. "Glória a Deus em todas as coisas."</p>
+            <p class="font-cinzel font-bold text-gold-500 text-base mb-2">PROJETO MISSÃO VENCEDOR</p>
+            <p class="mb-6">Escola de Governança Integral & Personal Financial Care</p>
+            
+            <!-- LINKS REDES SOCIAIS RODAPÉ -->
+            <div class="flex justify-center items-center gap-6 mb-8 text-slate-300">
+                <a href="https://instagram.com/seu_perfil" target="_blank" class="hover:text-gold-500 transition-colors flex items-center gap-1.5">
+                    <i data-lucide="instagram" class="w-4 h-4"></i> Instagram
+                </a>
+                <a href="https://linkedin.com/in/seu_perfil" target="_blank" class="hover:text-gold-500 transition-colors flex items-center gap-1.5">
+                    <i data-lucide="linkedin" class="w-4 h-4"></i> LinkedIn
+                </a>
+            </div>
+
+            <p class="text-slate-500 text-xs">© Todos os direitos reservados. "Glória a Deus em todas as coisas."</p>
         </div>
     </footer>
 
@@ -872,6 +1000,60 @@
                 }
             });
         });
+
+        // LÓGICA DO FORMULÁRIO ETAPA POR ETAPA (MULTI-STEP)
+        let currentStep = 1;
+        const totalSteps = 5;
+
+        function showStep(step) {
+            // Oculta todas as etapas
+            const steps = document.querySelectorAll('.step-content');
+            steps.forEach(s => s.classList.remove('active'));
+
+            // Mostra a etapa atual
+            document.getElementById(`step-${step}`).classList.add('active');
+
+            // Atualiza botões
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            if (step === 1) {
+                prevBtn.classList.add('hidden');
+            } else {
+                prevBtn.classList.remove('hidden');
+            }
+
+            if (step === totalSteps) {
+                nextBtn.innerHTML = `<span>Finalizar e Enviar Anamnese</span> <i data-lucide="send" class="w-4 h-4"></i>`;
+            } else {
+                nextBtn.innerHTML = `<span>Concluir Etapa</span> <i data-lucide="chevron-right" class="w-4 h-4"></i>`;
+            }
+
+            // Atualiza barra de progresso
+            const progressBar = document.getElementById('progress-bar');
+            const stepIndicator = document.getElementById('step-indicator');
+            const percent = (step / totalSteps) * 100;
+            
+            progressBar.style.width = `${percent}%`;
+            stepIndicator.innerText = `Etapa ${step} de ${totalSteps}`;
+
+            lucide.createIcons();
+        }
+
+        function nextPrev(n) {
+            // Se estiver na última etapa e clicar em Avançar/Finalizar, envia o formulário
+            if (currentStep === totalSteps && n === 1) {
+                document.getElementById('leadForm').submit();
+                return;
+            }
+
+            currentStep += n;
+
+            if (currentStep < 1) currentStep = 1;
+            if (currentStep > totalSteps) currentStep = totalSteps;
+
+            showStep(currentStep);
+        }
     </script>
 </body>
 </html>
