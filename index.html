@@ -637,51 +637,199 @@
             </div>
 
            <!-- FORMULÁRIO CONFIGURADO PARA ENVIAR EMAIL -->
-<form action="envia.php" method="POST" id="leadForm" class="space-y-4">
+<!-- MODAL / FICHA DE ANAMNESE -->
+<div id="leadModal" class="fixed inset-0 bg-navy-900/80 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4 overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl relative my-8 border border-gold-500/30 max-h-[90vh] overflow-y-auto">
+        
+        <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 p-2">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
 
-    <div>
-        <label class="block text-xs font-bold text-navy-800 mb-1">Nome Completo *</label>
-        <input type="text" name="nome" required placeholder="Seu nome completo" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <div>
-            <label class="block text-xs font-bold text-navy-800 mb-1">Data de Nascimento *</label>
-            <input type="date" name="data_nascimento" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm text-slate-700">
+        <div class="text-center mb-6">
+            <span class="font-cinzel text-gold-500 text-xs font-bold uppercase tracking-widest block mb-1">Alinhamento Perfeito</span>
+            <h3 class="font-cinzel text-2xl font-bold text-navy-900">Ficha de Anamnese do Cliente</h3>
+            <p class="text-xs text-slate-500 mt-2 bg-amber-50 p-3 rounded-xl border border-amber-200 text-amber-900">
+                💡 <strong>Nota:</strong> Este formulário serve para alinharmos nossas reuniões ao seu perfil. Nenhuma pergunta é obrigatória — responda apenas ao que se sentir confortável!
+            </p>
         </div>
-        <div>
-            <label class="block text-xs font-bold text-navy-800 mb-1">Profissão *</label>
-            <input type="text" name="profissao" required placeholder="Sua ocupação principal" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
-        </div>
+
+        <form action="envia.php" method="POST" id="leadForm" class="space-y-6">
+
+            <!-- SEÇÃO 1 -->
+            <div class="border-b border-slate-200 pb-4">
+                <h4 class="font-bold text-navy-900 text-sm mb-3 text-gold-600">1. Dados de Contato e Perfil Geral</h4>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+                    <div>
+                        <label class="block text-xs font-bold text-navy-800 mb-1">Nome completo</label>
+                        <input type="text" name="nome" placeholder="Seu nome" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-navy-800 mb-1">Idade</label>
+                        <input type="text" name="idade" placeholder="Ex: 35 anos" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
+                    <div>
+                        <label class="block text-xs font-bold text-navy-800 mb-1">Estado civil</label>
+                        <input type="text" name="estado_civil" placeholder="Solteiro(a), Casado(a)..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-navy-800 mb-1">E-mail</label>
+                        <input type="email" name="email" placeholder="seuemail@exemplo.com" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-navy-800 mb-1">Celular / WhatsApp</label>
+                        <input type="tel" name="whatsapp" placeholder="(11) 99999-9999" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+                    <div>
+                        <label class="block text-xs font-bold text-navy-800 mb-1">Nacionalidade</label>
+                        <input type="text" name="nacionalidade" placeholder="Ex: Brasileira" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-navy-800 mb-1">Possui segunda cidadania? (Qual?)</label>
+                        <input type="text" name="segunda_cidadania" placeholder="Não, ou Sim (Italiana, Portuguesa...)" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+                    <div>
+                        <label class="block text-xs font-bold text-navy-800 mb-1">Formação acadêmica</label>
+                        <input type="text" name="formacao" placeholder="Ex: Engenharia, Direito..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-navy-800 mb-1">Profissão / Atuação atual</label>
+                        <input type="text" name="profissao" placeholder="Ex: Empresário, Autônomo..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-navy-800 mb-1">Tem filhos? (Quantos e idades)</label>
+                    <input type="text" name="filhos" placeholder="Não, ou Sim (Ex: 2 filhos - 5 e 10 anos)" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                </div>
+            </div>
+
+            <!-- SEÇÃO 2 -->
+            <div class="border-b border-slate-200 pb-4">
+                <h4 class="font-bold text-navy-900 text-sm mb-1 text-gold-600">2. Hábitos, Estilo de Vida & Preferências</h4>
+                <p class="text-[11px] text-slate-500 mb-3">(Ajuda a entender seu estilo e planejar experiências ou pausas durante nossa jornada!)</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+                    <div>
+                        <label class="block text-xs font-bold text-navy-800 mb-1">Prefere qual estação do ano?</label>
+                        <select name="estacao_ano" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm text-slate-700">
+                            <option value="Não informado">Selecione...</option>
+                            <option value="Primavera">Primavera</option>
+                            <option value="Verão">Verão</option>
+                            <option value="Outono">Outono</option>
+                            <option value="Inverno">Inverno</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-navy-800 mb-1">Gosta mais de comida quente ou fria?</label>
+                        <input type="text" name="comida_preferencia" placeholder="Ex: Quente, Fria, Tanto faz..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="block text-xs font-bold text-navy-800 mb-1">Gosta de algum esporte? (Praticando ou assistindo)</label>
+                    <input type="text" name="esporte" placeholder="Ex: Corrida, Futebol, Tênis, Natação..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-navy-800 mb-1">Já viajou para outros países? Quais marcaram você?</label>
+                    <input type="text" name="viagens_internacionais" placeholder="Não, ou Sim (Ex: Itália, EUA, Japão...)" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                </div>
+            </div>
+
+            <!-- SEÇÃO 3 -->
+            <div class="border-b border-slate-200 pb-4">
+                <h4 class="font-bold text-navy-900 text-sm mb-3 text-gold-600">3. Mapeamento de Rede e Proteção Financeira</h4>
+
+                <div class="mb-3">
+                    <label class="block text-xs font-bold text-navy-800 mb-1">Já conhece algum produto do mercado financeiro?</label>
+                    <input type="text" name="conhecimento_financeiro" placeholder="Ex: CDB, LCI, Tesouro, Ações, Cripto..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+                    <div>
+                        <label class="block text-xs font-bold text-navy-800 mb-1">Já tem Assessor, Consultor ou parceiro investidor?</label>
+                        <input type="text" name="tem_assessor" placeholder="Sim / Não" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-navy-800 mb-1">Tem advogado(a) de confiança?</label>
+                        <input type="text" name="tem_advogado" placeholder="Sim / Não" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-navy-800 mb-1">Contratou algum tipo de seguro nos últimos meses? (Qual?)</label>
+                    <input type="text" name="seguros_contratados" placeholder="Não, ou Sim (Ex: Vida, Auto, Residencial, Saúde)" class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
+                </div>
+            </div>
+
+            <!-- SEÇÃO 4 -->
+            <div class="border-b border-slate-200 pb-4">
+                <h4 class="font-bold text-navy-900 text-sm mb-3 text-gold-600">4. Visão de Futuro</h4>
+
+                <div class="mb-3">
+                    <label class="block text-xs font-bold text-navy-800 mb-1">Projetos de CURTO prazo (Até 1 ou 2 anos)</label>
+                    <textarea name="curto_prazo" rows="2" placeholder="Ex: Viagem, trocar de carro, reserva de emergência..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm"></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="block text-xs font-bold text-navy-800 mb-1">Projetos de MÉDIO prazo (De 2 a 5 anos)</label>
+                    <textarea name="medio_prazo" rows="2" placeholder="Ex: Pós-graduação, dar entrada em imóvel, transição de carreira..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-navy-800 mb-1">Projetos de LONGO prazo (Acima de 5 anos)</label>
+                    <textarea name="longo_prazo" rows="2" placeholder="Ex: Independência financeira, aposentadoria, faculdade dos filhos..." class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm"></textarea>
+                </div>
+            </div>
+
+            <!-- SEÇÃO 5 -->
+            <div>
+                <h4 class="font-bold text-navy-900 text-sm mb-1 text-gold-600">5. 🧩 Desafio Lógico & Teste de Personalidade</h4>
+                <p class="text-[11px] text-slate-500 mb-3 bg-slate-50 p-2 rounded-lg border border-slate-200">
+                    <strong>Cenário:</strong> Você está em uma viagem dos sonhos e descobre que a única ponte que leva ao seu hotel foi interditada por 24h por causa de uma chuva rápida. O que você faz?
+                </p>
+
+                <div class="space-y-2 text-xs text-slate-700">
+                    <label class="flex items-start gap-2 p-2 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="teste_personalidade" value="(A) O Estrategista de Riscos" class="mt-0.5">
+                        <span><strong>(A) O Estrategista de Riscos:</strong> Já pego o celular, abro o mapa, procuro três rotas alternativas, ligo para a recepção do hotel para avisar do atraso e aproveito para negociar um late check-out.</span>
+                    </label>
+
+                    <label class="flex items-start gap-2 p-2 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="teste_personalidade" value="(B) O Otimista Pragmático" class="mt-0.5">
+                        <span><strong>(B) O Otimista Pragmático:</strong> Se não dá para cruzar, não dá! Procuro um café charmoso ali perto, peço uma boa refeição e transformo o imprevisto em uma história divertida da viagem.</span>
+                    </label>
+
+                    <label class="flex items-start gap-2 p-2 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="teste_personalidade" value="(C) O Visionário Focado" class="mt-0.5">
+                        <span><strong>(C) O Visionário Focado:</strong> Dou um jeito. Pergunto para os locais se há um barco, um caminho alternativo de terra ou qualquer meio seguro de atravessar hoje mesmo. O objetivo é chegar ao hotel!</span>
+                    </label>
+
+                    <label class="flex items-start gap-2 p-2 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                        <input type="radio" name="teste_personalidade" value="(D) O Cuidadoso Previdente" class="mt-0.5">
+                        <span><strong>(D) O Cuidadoso Previdente:</strong> Dou graças a Deus que contratei seguro viagem e reserva de emergência! Sento com calma, analiso o cenário e tomo a decisão mais segura e econômica para o meu bolso.</span>
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="w-full bg-gradient-to-r from-gold-500 to-amber-600 text-navy-900 font-extrabold py-3.5 rounded-xl shadow-md hover:brightness-110 transition-all text-sm mt-4 flex items-center justify-center gap-2 cursor-pointer">
+                <span>ENVIAR FICHA DE ANAMNESE</span>
+                <i data-lucide="send" class="w-4 h-4"></i>
+            </button>
+
+        </form>
     </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <div>
-            <label class="block text-xs font-bold text-navy-800 mb-1">WhatsApp (com DDD) *</label>
-            <input type="tel" name="whatsapp" required placeholder="(11) 99999-9999" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
-        </div>
-        <div>
-            <label class="block text-xs font-bold text-navy-800 mb-1">E-mail Principal *</label>
-            <input type="email" name="email" required placeholder="seuemail@exemplo.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm">
-        </div>
-    </div>
-
-    <div>
-        <label class="block text-xs font-bold text-navy-800 mb-1">Qual é o seu maior problema/desafio hoje? *</label>
-        <textarea name="problema" required rows="2" placeholder="Ex: Ansiedade, desorganização financeira, falta de brio, crise familiar..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm"></textarea>
-    </div>
-
-    <div>
-        <label class="block text-xs font-bold text-navy-800 mb-1">Quais são os seus maiores sonhos e objetivos? *</label>
-        <textarea name="sonhos" required rows="2" placeholder="Ex: Ter estabilidade no lar, crescer espiritualmente, ter liberdade financeira..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-gold-500 text-sm"></textarea>
-    </div>
-
-    <button type="submit" class="w-full bg-gradient-to-r from-gold-500 to-amber-600 text-navy-900 font-extrabold py-3.5 rounded-xl shadow-md hover:brightness-110 transition-all text-sm mt-2 flex items-center justify-center gap-2 cursor-pointer">
-        <span>ENVIAR APLICAÇÃO POR E-MAIL</span>
-        <i data-lucide="send" class="w-4 h-4"></i>
-    </button>
-
-</form>
+</div>
     <!-- RODAPÉ -->
     <footer class="bg-navy-900 text-slate-400 py-10 border-t border-gold-500/10 text-center text-xs sm:text-sm">
         <div class="max-w-5xl mx-auto px-4">
